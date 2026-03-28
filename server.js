@@ -17,12 +17,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());                          // Allow requests from any origin (lock this down in prod)
 app.use(express.json());                  // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public"))); // Serve frontend assets
-
-// ─── Health check ────────────────────────────────────────────────────────────
-app.get("/health", (_req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
-});
 
 // =============================================================================
 //  BUDGET ROUTES
